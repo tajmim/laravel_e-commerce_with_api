@@ -2,8 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\User;
-
+use App\Http\Controllers\ApiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,14 +17,14 @@ use App\Models\User;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('/register',[ApiController::class,'register']);
+Route::post('/user_login',[ApiController::class,'user_login']);
 
-Route::post('/login',function(Request $request){
-$user = User::find(1);
- 
-// Creating a token without scopes...
-$token = $user->createToken('Token Name')->accessToken;
- 
-// Creating a token with scopes...
-$token = $user->createToken('My Token', ['place-orders'])->accessToken;
-return $token;
-});
+
+Route::post('/seller/register',[ApiController::class,'seller_register']);
+Route::post('/seller/login',[ApiController::class,'seller_login']);
+
+
+Route::get('show_products',[ApiController::class,'show_products']);
+
+

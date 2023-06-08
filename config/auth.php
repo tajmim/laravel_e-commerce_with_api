@@ -40,10 +40,23 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+        'seller' => [
+            'driver' => 'session',
+            'provider' => 'sellers',
+        ],
         'api' => [
         'driver' => 'passport',
         'provider' => 'users',
-    ],
+        ],
+        'api-seller' => [
+        'driver' => 'passport',
+        'provider' => 'sellers',
+        ],
+
     ],
 
     /*
@@ -67,6 +80,14 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\admin::class,
+        ],
+        'sellers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Seller::class,
         ],
 
         // 'users' => [
