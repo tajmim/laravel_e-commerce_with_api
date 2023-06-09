@@ -28,3 +28,8 @@ Route::post('/seller/login',[ApiController::class,'seller_login']);
 Route::get('show_products',[ApiController::class,'show_products']);
 
 
+
+
+Route::post('place_order/{id}',[ApiController::class,'place_order']);
+
+
