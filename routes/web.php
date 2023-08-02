@@ -2,9 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-use App\Http\Controllers\googleController;
-use App\Http\Controllers\productController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,17 +42,11 @@ require __DIR__.'/adminauth.php';
 
 
 
-Route::get('/seller/dashboard', function () {
-    return view('seller.dashboard');
-})->middleware(['auth:seller', 'verified'])->name('seller.dashboard');
-
-require __DIR__.'/sellerauth.php';
-
-Route::get('auth/google', [googleController::class, 'redirect'])->name('google-auth');
-Route::get('auth/google/call-back', [googleController::class, 'callbackGoogle']);
 
 
+Route::get('/manager/dashboard', function () {
+    return view('manager.dashboard');
+})->middleware(['auth:manager', 'verified'])->name('manager.dashboard');
 
+require __DIR__.'/managerauth.php';
 
-Route::post('/submit_product',[productController::Class,'submit_product']);
-Route::get('/view_product',[productController::Class,'view_product']);

@@ -48,20 +48,38 @@
             </div>
 
             <div class="max-w-7xl mx-auto p-6 lg:p-8" style="display:block">
-            @if (Route::has('seller.login'))
+            @if (Route::has('developer.login'))
                 <div class="">
-                    @auth('seller')
-                        <a href="{{ url('/seller/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Seller Dashboard</a>
+                    @auth('developer')
+                        <a href="{{ url('/developer/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">developer Dashboard</a>
                     @else
-                        <a href="{{ route('seller.login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Seller Log in</a>
+                        <a href="{{ route('developer.login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">developer Log in</a>
 
-                        @if (Route::has('seller.register'))
-                            <a href="{{ route('seller.register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Seller Register</a>
+                        @if (Route::has('developer.register'))
+                            <a href="{{ route('developer.register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">developer Register</a>
                         @endif
                     @endauth
                 </div>
             @endif
             </div>
+
+
+            <div class="max-w-7xl mx-auto p-6 lg:p-8" style="display:block">
+            @if (Route::has('manager.login'))
+                <div class="">
+                    @auth('manager')
+                        <a href="{{ url('/manager/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">tanha Dashboard</a>
+                    @else
+                        <a href="{{ route('developer.login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">manager Log in</a>
+
+                        @if (Route::has('manager.register'))
+                            <a href="{{ route('manager.register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">manager Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+            </div>
+
         </div>
     </body>
 </html>

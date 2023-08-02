@@ -48,15 +48,26 @@ return [
             'driver' => 'session',
             'provider' => 'sellers',
         ],
-        'api' => [
-        'driver' => 'passport',
-        'provider' => 'users',
+        'manager' => [
+            'driver' => 'session',
+            'provider' => 'managers',
+        ],
+        'api-admin' => [
+            'driver' => 'jwt',
+            'provider' => 'admins',
+        ],
+        'api-user' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
         ],
         'api-seller' => [
-        'driver' => 'passport',
-        'provider' => 'sellers',
+            'driver' => 'jwt',
+            'provider' => 'sellers',
         ],
-
+        'api-manager' => [
+            'driver' => 'jwt',
+            'provider' => 'managers',
+        ],
     ],
 
     /*
@@ -88,6 +99,10 @@ return [
         'sellers' => [
             'driver' => 'eloquent',
             'model' => App\Models\Seller::class,
+        ],
+        'managers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\manager::class,
         ],
 
         // 'users' => [
